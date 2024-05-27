@@ -13,46 +13,45 @@ fonts:
   sans: "Lato,cursive"
 
 themeConfig:
-  color: "#000000"
-  background: "#215287"
+  color: "#0E131F"
+  background: "#2a3180"
 
   font-size: "2em"
 
   cover-background: "#ffffff"
-  cover-headingBg: "#215287"
+  cover-headingBg: "#2a3180"
   cover-headingColor: "#F8F8F8"
 
   default-background: "#F8F8F8"
-  default-headingBg: "#215287"
+  default-headingBg: "#2a3180"
   default-headingColor: "#F8F8F8"
   default-font-size: "1.4rem"
 
   center-background: "#F8F8F8"
-  center-headingBg: "#215287"
+  center-headingBg: "#2a3180"
   center-headingColor: "#F8F8F8"
 
   section-background: "#F8F8F8"
-  section-headingBg: "#215287"
+  section-headingBg: "#2a3180"
   section-headingColor: "#F8F8F8"
 
   aboutme-background: "#F8F8F8"
   aboutme-color: var(--slidev-theme-color)
-  aboutme-helloBg: "#215287"
+  aboutme-helloBg: "#4ab7a3"
   aboutme-helloColor: "#F8F8F8"
-  aboutme-nameColor: "#215287"
+  aboutme-nameColor: "#2a3180"
 
-  code-background: "#215287"
+  code-background: "#2a3180"
   code-color: "#F8F8F8"
   code-font-size: 1.1em
 
-layout: image
-image: ./cloudsummit/title.png
+layout: cover
+background: ./slides/title-slide.jpg
 ---
 
----
-layout: image
-image: ./cloudsummit/sponsor.png
----
+# From Code to Cloud <br /> Automated Deployments with GitHub Actions
+
+Elio Struyf @ devs.gent
 
 ---
 layout: about-me
@@ -66,6 +65,25 @@ social1: "@eliostruyf"
 social2: eliostruyf.com
 social3: elio@struyfconsulting.be
 ---
+
+<div class="recognitions">
+  <img src="/profile/github.svg" height="30px" />
+  <img src="/profile/mvp.svg" height="30px" />
+  <img src="/profile/gde.svg" height="30px" />
+</div>
+
+<style>
+  .recognitions {
+    display: flex;
+    gap: 1rem;
+    background: #F8F8F8;
+    padding: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    position: absolute;
+    z-index: 999;
+    bottom: 1rem;
+  }
+</style>
 
 ---
 layout: cover
@@ -101,19 +119,6 @@ background: ./slides/githubactions.svg
 - **Free** for public repositories and self-hosted runners
 - **Community** contributed actions
 - **Cost-effective** for private repositories ("free" minutes)
-
----
----
-
-# "Free" minutes per plan
-
-| **Plan** | **Free minutes** |
-| --- | --- |
-| GitHub Free | 2,000 |
-| GitHub Pro | 3,000 |
-| GitHub Free for orgs | 2000 |
-| GitHub Team | 3,000 |
-| GitHub Enterprise Cloud | 50,000 |
 
 ---
 layout: cover
@@ -160,7 +165,7 @@ background: ./slides/terminology.jpg
 
 ```mermaid
 flowchart LR
-  Events --> |triggers| Workflow --> |starts| Job --> |uses| Runner --- Step --- Action
+  Events --> |&nbsp;triggers&nbsp;| Workflow --> |&nbsp;starts&nbsp;| Job --> |&nbsp;uses&nbsp;| Runner --- Step --- Action
 ```
 
 <br />
@@ -332,6 +337,10 @@ preview-deploy:
     pages: write
     id-token: write
 ```
+
+<br />
+
+Evaluate permissions 👉 [Monitor and Advisor actions](https://github.com/GitHubSecurityLab/actions-permissions)
 
 ---
 ---
@@ -608,3 +617,22 @@ social1: "@eliostruyf"
 social2: eliostruyf.com
 social3: elio@struyfconsulting.be
 ---
+
+<div class="recognitions">
+  <img src="/profile/github.svg" height="30px" />
+  <img src="/profile/mvp.svg" height="30px" />
+  <img src="/profile/gde.svg" height="30px" />
+</div>
+
+<style>
+  .recognitions {
+    display: flex;
+    gap: 1rem;
+    background: #F8F8F8;
+    padding: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    position: absolute;
+    z-index: 999;
+    bottom: 1rem;
+  }
+</style>
