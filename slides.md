@@ -575,6 +575,7 @@ act
 
 # There is still more to explore
 
+- Templating or composite actions
 - GitHub Actions Marketplace
 - Create your actions and distribute them
 - Matrix builds -> automatically create multiple jobs
@@ -589,7 +590,7 @@ background: ./slides/thankyou.jpg
 
 <style>
   .slidev-layout.default {
-    background: url(./slides/thankyou.jpg) no-repeat center center !important;
+    background: url(/slides/thankyou.jpg) no-repeat center center !important;
     position: relative;
   }
 

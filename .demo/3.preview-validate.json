@@ -113,7 +113,7 @@
       "steps": [{
         "action": "executeVSCodeCommand",
         "command": "simpleBrowser.show",
-        "args": "https://estruyf.github.io/github-actions-presentation-test/25"
+        "args": "https://slides.elio.dev/20240629-devsgent/23"
       }, {
         "action": "executeVSCodeCommand",
         "command": "workbench.action.closeSidebar"

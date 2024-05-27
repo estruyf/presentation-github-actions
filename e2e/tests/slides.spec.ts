@@ -13,9 +13,8 @@ test("Check name is shown", async ({ page }) => {
   const button = page.getByRole("button", { name: "Go to next slide" });
   await button.hover();
   await button.click();
-  await button.click();
 
-  const slide = page.locator(`div[data-slidev-no="3"]`);
+  const slide = page.locator(`div[data-slidev-no="2"]`);
   await expect(slide).toBeVisible();
 
   const hello = slide.locator(`h1`);
