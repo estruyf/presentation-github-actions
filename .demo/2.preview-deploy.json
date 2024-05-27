@@ -128,7 +128,7 @@
       "steps": [{
         "action": "executeVSCodeCommand",
         "command": "simpleBrowser.show",
-        "args": "https://slides.elio.dev/20240629-devsgent/19"
+        "args": "https://slides.elio.dev/20240529-devsgent/19"
       }, {
         "action": "executeVSCodeCommand",
         "command": "workbench.action.closeSidebar"
