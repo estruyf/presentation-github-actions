@@ -4,7 +4,7 @@
   "description": "",
   "demos": [
     {
-      "title": "1. Open workflow",
+      "title": "1. Starter workflow",
       "steps": [
         {
           "action": "unselect",
@@ -70,17 +70,6 @@
           "command": "gh browse -n | xargs -I {} echo {}/settings | xargs open"
         }
       ]
-    },
-    {
-      "title": "🛝 Caching",
-      "steps": [{
-        "action": "executeVSCodeCommand",
-        "command": "simpleBrowser.show",
-        "args": "https://estruyf.github.io/github-actions-presentation-test/23"
-      }, {
-        "action": "executeVSCodeCommand",
-        "command": "workbench.action.closeSidebar"
-      }]
     },
     {
       "title": "6. Add Playwright caching",

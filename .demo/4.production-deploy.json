@@ -4,7 +4,7 @@
   "description": "",
   "demos": [
     {
-      "title": "1. Open workflow",
+      "title": "1. Starter workflow",
       "steps": [
         {
           "action": "unselect",
@@ -36,17 +36,6 @@
       ]
     },
     {
-      "title": "🛝 Environments & Secrets",
-      "steps": [{
-        "action": "executeVSCodeCommand",
-        "command": "simpleBrowser.show",
-        "args": "https://estruyf.github.io/github-actions-presentation-test/27"
-      }, {
-        "action": "executeVSCodeCommand",
-        "command": "workbench.action.closeSidebar"
-      }]
-    },
-    {
       "title": "3. Deploy to production",
       "steps": [
         {
@@ -74,60 +63,7 @@
       ]
     },
     {
-      "title": "5. Create custom action",
-      "steps": [
-        {
-          "action": "create",
-          "path": "/.github/actions/validate/action.yml",
-          "contentPath": "./production-deploy/step5.yml"
-        },
-        {
-          "action": "open",
-          "path": "/.github/actions/validate/action.yml"
-        }
-      ]
-    },
-    {
-      "title": "6. Use custom action",
-      "steps": [
-        {
-          "action": "open",
-          "path": "/.github/workflows/main.yml"
-        },
-        {
-          "action": "unselect",
-          "path": "/.github/workflows/main.yml"
-        },
-        {
-          "action": "replace",
-          "path": "/.github/workflows/main.yml",
-          "contentPath": "./production-deploy/step6.yml",
-          "position": "109:142"
-        },
-        {
-          "action": "highlight",
-          "path": "/.github/workflows/main.yml",
-          "position": "115:118"
-        }
-      ]
-    },
-    {
-      "title": "7. Test production deploy",
-      "steps": [
-        {
-          "action": "unselect",
-          "path": "/.github/workflows/main.yml"
-        },
-        {
-          "action": "insert",
-          "path": "/.github/workflows/main.yml",
-          "contentPath": "./production-deploy/step7.yml",
-          "position": "149"
-        }
-      ]
-    },
-    {
-      "title": "8. Commit and show site",
+      "title": "5. Commit and show site",
       "steps": [
         {
           "action": "unselect",

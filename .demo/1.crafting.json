@@ -18,17 +18,6 @@
       ]
     },
     {
-      "title": "🛝 Variables",
-      "steps": [{
-        "action": "executeVSCodeCommand",
-        "command": "simpleBrowser.show",
-        "args": "https://estruyf.github.io/github-actions-presentation-test/15"
-      }, {
-        "action": "executeVSCodeCommand",
-        "command": "workbench.action.closeSidebar"
-      }]
-    },
-    {
       "title": "2. Add env variables",
       "steps": [
         {

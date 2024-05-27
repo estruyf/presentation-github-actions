@@ -4,7 +4,7 @@
   "description": "",
   "demos": [
     {
-      "title": "1. Open workflow",
+      "title": "1. Starter workflow",
       "steps": [
         {
           "action": "unselect",
@@ -72,17 +72,6 @@
       ]
     },
     {
-      "title": "🛝 GitHub token",
-      "steps": [{
-        "action": "executeVSCodeCommand",
-        "command": "simpleBrowser.show",
-        "args": "https://estruyf.github.io/github-actions-presentation-test/18"
-      }, {
-        "action": "executeVSCodeCommand",
-        "command": "workbench.action.closeSidebar"
-      }]
-    },
-    {
       "title": "6. Elevate token permissions",
       "steps": [
         {
@@ -92,17 +81,6 @@
           "position": "67"
         }
       ]
-    },
-    {
-      "title": "🛝 Output variable",
-      "steps": [{
-        "action": "executeVSCodeCommand",
-        "command": "simpleBrowser.show",
-        "args": "https://estruyf.github.io/github-actions-presentation-test/20"
-      }, {
-        "action": "executeVSCodeCommand",
-        "command": "workbench.action.closeSidebar"
-      }]
     },
     {
       "title": "7. Using environments",
