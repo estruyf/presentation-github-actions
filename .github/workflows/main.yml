@@ -1,0 +1,14 @@
+name: Deploy slides
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - devsgent
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello, world!"
