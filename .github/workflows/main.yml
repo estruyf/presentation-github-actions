@@ -4,7 +4,7 @@ on:
   workflow_dispatch: {}
   push:
     branches:
-      - visugxl
+      - visugxl-test
 
 env:
   github_artifact: github-website
@@ -36,7 +36,15 @@ jobs:
         with:
           name: ${{ env.github_artifact }}
           path: dist  
-  
+
+      - name: Build
+        run: npm run build -- --out azure
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.azure_artifact }}
+          path: azure
+
   pdf_export:
     runs-on: ubuntu-latest
     needs: build
@@ -101,37 +109,59 @@ jobs:
         working-directory: ./e2e
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
 
-      - name: Install dependencies
-        run: |
-          npm ci
-
-      - name: Store Playwright's Version
-        run: |
-          PLAYWRIGHT_VERSION=$(npm ls @playwright/test | grep @playwright | sed '$!d' | sed 's/.*@//')
-          echo "Playwright's Version: $PLAYWRIGHT_VERSION"
-          echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
-
-      - name: Cache Playwright Browsers for Playwright's Version
-        id: cache-playwright
-        uses: actions/cache@v4
+      - uses: ./.github/actions/validate
         with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ env.PLAYWRIGHT_VERSION }}
+          website-url: ${{ needs.preview-deploy.outputs.page_url }}
+          test-title: "Preview Test Report"
+  
+  production-deploy:
+    runs-on: ubuntu-latest
+    needs: preview-e2e
+    environment:
+      name: production
+      url: ${{ vars.WEBSITE_URL }}
 
-      - name: Install Playwright Browsers
-        if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+    outputs:
+      website-url: ${{ vars.WEBSITE_URL }}
 
-      - name: Run e2e tests
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.azure_artifact }}
+          path: dist
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install static web apps CLI
+        run: npm install -g @azure/static-web-apps-cli
+
+      - name: Deploy to Azure
+        run: swa deploy ./dist --deployment-token ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }} --env production
+
+      - name: Log the result
         run: |
-          npx playwright test
-        env:
-          WEBSITE_URL: ${{ needs.preview-deploy.outputs.page_url }}
-          TEST_TITLE: "Preview Test Report"
+          echo "Production site: [${{ vars.WEBSITE_URL }}](${{ vars.WEBSITE_URL }})" >> $GITHUB_STEP_SUMMARY
+
+  production-e2e:
+    runs-on: ubuntu-latest
+    needs: production-deploy
+
+    defaults:
+      run:
+        working-directory: ./e2e
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/validate
+        with:
+          website-url: ${{ needs.production-deploy.outputs.website-url }}
+          test-title: "Production Test Report"
